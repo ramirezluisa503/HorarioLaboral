@@ -10,11 +10,13 @@ export function HorarioLaboral() {
 
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-[#3B82F6] ml-1 ">Código de Empleado</label>
-            <input 
-              className="text-lg border-2 border-blue-100 rounded-xl p-4 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all" 
-              placeholder="Ingrese su identificación" 
-              type="text" 
+            <label className="text-sm font-semibold text-[#3B82F6] ml-1 ">
+              Código de Empleado
+            </label>
+            <input
+              className="text-lg border-2 border-blue-100 rounded-xl p-4 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50 transition-all"
+              placeholder="Ingrese su identificación"
+              type="text"
             />
           </div>
 
@@ -30,7 +32,9 @@ export function HorarioLaboral() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center text-sm text-gray-500">
-          <span>Estado: <span className="text-blue-600 font-medium">En espera</span></span>
+          <span>
+            Estado: <span className="text-blue-600 font-medium">En espera</span>
+          </span>
           <span className="hidden md:block">@2026</span>
         </div>
       </div>
