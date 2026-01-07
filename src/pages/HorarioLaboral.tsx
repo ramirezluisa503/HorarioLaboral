@@ -72,8 +72,8 @@ export function HorarioLaboral() {
   /*INTERFAZ ----------------------------------------------------------------------------------------- */
   return (
     <div className="min-h-screen w-full bg-blue-50 flex flex-col items-center justify-center p-4">
-      <div className="bg-white p-6 md:p-10 rounded-2xl shadow-xl w-full max-w-sm md:max-w-2xl transition-all">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-blue-900 mb-2 text-center">
+      <div className="bg-white p-2 sm:p-4 md:p-10 rounded-2xl shadow-xl w-full max-w-[95%] md:max-w-2xl transition-all">
+        <h1 className="text-xl md:text-3xl font-extrabold text-blue-900 mb-2 text-center">
           Control de Jornada
         </h1>
 
