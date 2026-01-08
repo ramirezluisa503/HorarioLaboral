@@ -34,17 +34,25 @@ export function HorarioLaboral() {
   /*INGRESO DEL TRABAJADOR--------------------------------------------------------------------------*/
   /*Creamos la funcion del ingreso del trabajador que se va a ejecutar al dar click en el boton Marcar Ingreso */
   const manejarIngreso = () => {
+
+    const cedulaLimpia = cedula.trim(); 
+
     /*Se crea una condicion para verificar si el input que es la cajita en la que se ingresa los datos esta vacia */
-    if (!cedula.trim())
+    if (!cedulaLimpia.trim())
       return mostrarMensaje('Por favor, ingrese su cédula', 'error');
+
+    if(cedulaLimpia.length < 3){
+      return mostrarMensaje('La cédula debe tener al menos 3 digitos.', 'error');
+    }
+
 
     /*Validamos que un trabajador no entre dos veces sin salir*/
     /*Aqui revisamos si la cedula y existe en la lista usuariosActivos que creamos en la parte superior  */
-    if (usuariosActivos.includes(cedula)) {
+    if (usuariosActivos.includes(cedulaLimpia)) {
       mostrarMensaje('Esta cédula ya tiene un ingreso activo.', 'error');
     } else {
       /*Si la cedula no existe se añade a la lista de usuariosActivos */
-      setUsuariosActivos([...usuariosActivos, cedula]);
+      setUsuariosActivos([...usuariosActivos, cedulaLimpia]);
       mostrarMensaje('Ingreso registrado con éxito', 'exito');
       setCedula('');
     }
@@ -53,16 +61,24 @@ export function HorarioLaboral() {
   /*SALIDA DE TRABAJADOR---------------------------------------------------------------------------------*/
   /*Funcion que se ejecuta al dar click en Marcar Salida y verifica con la codicion que el usuario ya alla ingresado*/
   const manejarSalida = () => {
-    if (!cedula.trim())
-      return mostrarMensaje('Por favor, ingrese su cédula', 'error');
 
-    if (!usuariosActivos.includes(cedula)) {
+    const cedulaLimpia = cedula.trim();
+
+    if (!cedulaLimpia.trim()){
+      return mostrarMensaje('Por favor, ingrese su cédula', 'error');
+    }
+    
+    if(cedulaLimpia.length < 3){
+      return mostrarMensaje('La cédula debe tener al menos 3 digitos.', 'error');
+    }    
+
+    if (!usuariosActivos.includes(cedulaLimpia)) {
       mostrarMensaje(
         'No se encontró un ingreso previo para esta cédula.',
         'error'
       );
     } else {
-      const nuevoArray = usuariosActivos.filter((item) => item !== cedula); //Filtramos y eliminamos la cedula, al salir se borra la cedula del sistema y luego se actualiza la lista si el dato que se elimino.
+      const nuevoArray = usuariosActivos.filter((item) => item !== cedulaLimpia); //Filtramos y eliminamos la cedula, al salir se borra la cedula del sistema y luego se actualiza la lista si el dato que se elimino.
       setUsuariosActivos(nuevoArray);
       mostrarMensaje('Salida registrada con éxito', 'exito');
       setCedula('');
